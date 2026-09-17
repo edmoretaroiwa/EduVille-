@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — EduVille</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+</head>
+<body class="auth-page">
+
+  <!-- MOTTO BAR -->
+  <div class="motto-bar">✨ Commit to Your Future ✨</div>
+
+  <!-- BACK TO HOME -->
+  <a href="index.html" class="auth-back">← Back to Home</a>
+
+  <!-- AUTH CARD -->
+  <div class="auth-wrapper">
+    <div class="auth-card">
+
+      <!-- LOGO -->
+      <div class="auth-logo">
+        <span class="logo-icon">🎓</span>
+        <h1>Edu<span class="gold">Ville</span></h1>
+      </div>
+
+      <!-- TABS -->
+      <div class="auth-tabs">
+        <button id="tab-login" class="auth-tab active" onclick="switchTab('login')">Login</button>
+        <button id="tab-signup" class="auth-tab" onclick="switchTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="login-form" class="auth-form" onsubmit="handleLogin(event)">
+        <label>Email</label>
+        <input type="email" id="login-email" placeholder="you@example.com" required>
+
+        <label>Password</label>
+        <input type="password" id="login-password" placeholder="Your password" required>
+
+        <button type="submit" class="btn btn-gold auth-submit">🔐 Login</button>
+        <p class="auth-hint">New to EduVille? <a onclick="switchTab('signup')">Create an account</a></p>
+      </form>
+
+      <!-- SIGNUP FORM -->
+      <form id="signup-form" class="auth-form hidden" onsubmit="handleSignup(event)">
+        <label>Full Name</label>
+        <input type="text" id="signup-name" placeholder="e.g. Mary Achieng" required>
+
+        <label>Email</label>
+        <input type="email" id="signup-email" placeholder="you@example.com" required>
+
+        <label>Password</label>
+        <input type="password" id="signup-password" placeholder="At least 6 characters" required minlength="6">
+
+        <label>I am a...</label>
+        <div class="role-picker">
+          <label class="role-option">
+            <input type="radio" name="role" value="student" checked>
+            <span>🎓 Student</span>
+          </label>
+          <label class="role-option">
+            <input type="radio" name="role" value="teacher">
+            <span>📚 Teacher</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-gold auth-submit">✨ Create Account</button>
+        <p class="auth-hint">Already have an account? <a onclick="switchTab('login')">Login here</a></p>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="auth-footer">
+    <p>© 2025 EduVille · Commit to Your Future</p>
+    <p>📧 ttaroiwa@gmail.com · 📞 +267 78 727 9982</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
