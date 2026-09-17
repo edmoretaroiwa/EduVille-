@@ -472,3 +472,212 @@ footer {
   .lesson-row { flex-direction:column; align-items:flex-start; }
   .motto-bar { font-size:0.8rem; letter-spacing:1px; }
 }
+/* ============================
+   LOGIN / SIGNUP PAGE STYLES
+   ============================ */
+
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--edu-blue-dark), var(--edu-blue));
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-back {
+  color: var(--white);
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+}
+.auth-back:hover { color: var(--gold); }
+
+.auth-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  background: var(--white);
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  max-width: 420px;
+  border-top: 5px solid var(--gold);
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+.auth-logo .logo-icon { font-size: 2.2rem; }
+.auth-logo h1 {
+  color: var(--edu-blue);
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+/* Tabs */
+.auth-tabs {
+  display: flex;
+  background: var(--gray-bg);
+  border-radius: 10px;
+  padding: 0.3rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--gray-border);
+}
+.auth-tab {
+  flex: 1;
+  padding: 0.7rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: 0.25s;
+  font-family: inherit;
+}
+.auth-tab.active {
+  background: var(--edu-blue);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+/* Forms */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.auth-form.hidden { display: none; }
+
+.auth-form label {
+  font-weight: 600;
+  color: var(--edu-blue);
+  font-size: 0.85rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.2rem;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--gray-border);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: 0.25s;
+  background: #F8FAFC;
+}
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.25);
+  background: var(--white);
+}
+
+.auth-submit {
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.auth-hint {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+.auth-hint a {
+  color: var(--edu-blue);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.auth-hint a:hover { color: var(--gold-dark); }
+
+/* Role Picker */
+.role-picker {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+}
+.role-option {
+  flex: 1;
+  cursor: pointer;
+}
+.role-option input { display: none; }
+.role-option span {
+  display: block;
+  text-align: center;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--gray-border);
+  background: #F8FAFC;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: 0.25s;
+}
+.role-option input:checked + span {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--edu-blue-dark);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.35);
+}
+
+/* Login button in navbar */
+.btn-login {
+  background: var(--gold);
+  color: var(--edu-blue-dark) !important;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.btn-login:hover {
+  background: var(--gold-dark);
+  color: var(--white) !important;
+}
+
+/* User badge (after login) */
+.user-badge {
+  background: var(--gold);
+  color: var(--edu-blue-dark);
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.user-badge:hover { background: var(--gold-dark); }
+
+/* Auth footer */
+.auth-footer {
+  text-align: center;
+  color: var(--white);
+  padding: 1.5rem 1rem;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+.auth-footer p { margin-bottom: 0.3rem; }
+
+@media (max-width: 500px) {
+  .auth-card { padding: 1.8rem 1.3rem; }
+  .auth-logo h1 { font-size: 1.5rem; }
+}
