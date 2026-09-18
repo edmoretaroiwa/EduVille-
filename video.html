@@ -22,16 +22,20 @@
     <main class="main-feed full-width">
 
       <!-- LIVE YOUTUBE VIDEO -->
-      <div class="video-player-embed">
-        <iframe 
-          src="https://www.youtube.com/embed/NybHckSEQBI" 
-          title="Intro to Algebra"
-          allowfullscreen>
-        </iframe>
-      </div>
+    <!-- LIVE YOUTUBE VIDEO (loaded dynamically) -->
+<div class="video-player-embed">
+  <iframe 
+    id="video-frame"
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+    title="Video Lesson"
+    allowfullscreen>
+  </iframe>
+</div>
 
-      <h1 class="video-title">Introduction to Algebra</h1>
-      <p class="muted">📘 Mathematics · Lesson 01 · Mr. Otieno · 12 min</p>
+<h1 class="video-title" id="video-title-el">Loading...</h1>
+<p class="muted" id="video-meta-el">⏳ Loading video info...</p>
+
+<p class="muted" id="video-desc-el" style="margin-top:0.8rem;"></p>  min</p>
 
       <div class="video-actions">
         <button class="btn btn-outline-blue small">👍 Like (48)</button>

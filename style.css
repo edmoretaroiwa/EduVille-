@@ -924,3 +924,15 @@ footer {
   font-size: 0.95rem;
 }
 .next-list li:last-child { border-bottom: none; }
+/* Section heading row with button */
+.section-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.section-heading-row .section-heading {
+  margin: 0;
+}

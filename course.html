@@ -44,15 +44,15 @@
         <a class="tab">💬 Discussions</a>
       </div>
 
-      <h3 class="section-heading">📖 Course Lessons</h3>
+      <div class="section-heading-row">
+  <h3 class="section-heading">📖 Course Lessons</h3>
+  <a href="add-video.html" class="btn-add" id="add-video-btn" style="display:none;">+ Add Video</a>
+</div>
 
-      <div class="lesson-row">
-        <div class="lesson-info">
-          <span class="lesson-num">01</span>
-          <div>
-            <h4>Introduction to Algebra</h4>
-            <p class="muted">Video · 12 min · Added 2 days ago</p>
-          </div>
+<!-- Dynamic lessons load here from Firestore -->
+<div id="lesson-list">
+  <p class="muted" id="loading-msg">⏳ Loading lessons...</p>
+</div>
         </div>
         <a href="video.html" class="btn btn-gold small">▶ Watch</a>
       </div>

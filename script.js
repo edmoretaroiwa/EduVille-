@@ -254,3 +254,105 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+/* ============================
+   DYNAMIC COURSE PAGE
+   Loads videos from Firestore
+   ============================ */
+
+// Load all videos and display them on course.html
+function loadCourseVideos() {
+  const container = document.getElementById('lesson-list');
+  if (!container) return;
+
+  db.collection('videos')
+    .orderBy('createdAt', 'desc')
+    .get()
+    .then((snapshot) => {
+      // Clear loading message
+      container.innerHTML = '';
+
+      if (snapshot.empty) {
+        container.innerHTML = `
+          <div class="card" style="text-align:center; padding:2rem;">
+            <h3 style="color:var(--edu-blue);">📭 No videos yet</h3>
+            <p class="muted">Be the first to publish a lesson!</p>
+            <a href="add-video.html" class="btn btn-gold" style="margin-top:1rem;">+ Add First Video</a>
+          </div>
+        `;
+        return;
+      }
+
+      let index = 1;
+      snapshot.forEach((doc) => {
+        const v = doc.data();
+        const num = String(index).padStart(2, '0');
+        const row = document.createElement('div');
+        row.className = 'lesson-row';
+        row.innerHTML = `
+          <div class="lesson-info">
+            <span class="lesson-num">${num}</span>
+            <div>
+              <h4>${v.title}</h4>
+              <p class="muted">📘 ${v.course} · ${v.duration || 'Video'} · ${v.author || 'Unknown'}</p>
+            </div>
+          </div>
+          <a href="video.html?id=${doc.id}" class="btn btn-gold small">▶ Watch</a>
+        `;
+        container.appendChild(row);
+        index++;
+      });
+    })
+    .catch((error) => {
+      container.innerHTML = `
+        <div class="card" style="text-align:center;">
+          <h3 style="color:#dc2626;">⚠️ Could not load videos</h3>
+          <p class="muted">${error.message}</p>
+        </div>
+      `;
+    });
+}
+
+// Load a single video on video.html based on URL parameter
+function loadSingleVideo() {
+  const params = new URLSearchParams(window.location.search);
+  const videoId = params.get('id');
+  if (!videoId) return; // Nothing to load, keep defaults
+
+  const frame = document.getElementById('video-frame');
+  const titleEl = document.getElementById('video-title-el');
+  const metaEl = document.getElementById('video-meta-el');
+  const descEl = document.getElementById('video-desc-el');
+  if (!frame) return;
+
+  db.collection('videos').doc(videoId).get()
+    .then((doc) => {
+      if (!doc.exists) {
+        titleEl.innerText = '❌ Video not found';
+        metaEl.innerText = 'This video may have been removed.';
+        return;
+      }
+      const v = doc.data();
+      frame.src = v.embedUrl;
+      titleEl.innerText = v.title;
+      metaEl.innerText = `📘 ${v.course} · ${v.duration || 'Video'} · ${v.author || 'Unknown'}`;
+      descEl.innerText = v.description || '';
+    })
+    .catch((error) => {
+      titleEl.innerText = '⚠️ Error loading video';
+      metaEl.innerText = error.message;
+    });
+}
+
+// Show "+ Add Video" button on course page if logged in
+document.addEventListener('DOMContentLoaded', () => {
+  const addBtn = document.getElementById('add-video-btn');
+  if (!addBtn) return;
+
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      addBtn.style.display = 'inline-flex';
+    } else {
+      addBtn.style.display = 'none';
+    }
+  });
+});
