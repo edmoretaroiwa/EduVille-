@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — EduVille</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><span class="logo-icon">🎓</span><span class="logo-text">Edu<span class="gold">Ville</span></span></div>
+    <input class="search-bar" type="text" placeholder="🔍 Search...">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="course.html">Courses</a></li>
+      <li><a href="video.html">Videos</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="login.html" class="btn-login">🔐 Login</a></li>
+      <li><a href="profile.html" class="avatar-link">👤</a></li>
+    </ul>
+  </nav>
+
+  <div class="motto-bar">✨ Commit to Your Future ✨</div>
+
+  <div class="layout">
+    <main class="main-feed full-width">
+
+      <!-- HERO -->
+      <div class="about-hero">
+        <h1>Our <span class="gold">Story</span></h1>
+        <p>How EduVille came to be — from a Form 5 dream to a platform for every learner.</p>
+      </div>
+
+      <!-- ORIGIN STORY -->
+      <div class="card about-card">
+        <h2>💡 The Idea</h2>
+        <p>
+          EduVille started as a simple question asked by a Form 5 student in Chitungwiza:
+          <em>"What if there was a GitHub for education?"</em>
+        </p>
+        <p>
+          Just like GitHub lets developers share code, EduVille lets students and teachers
+          <strong>share past exam papers, notes, and study resources</strong> — so no learner
+          ever struggles to find quality material again.
+        </p>
+        <p>
+          Then came a second thought: <em>"What if there was a TikTok — but only for education?"</em>
+          A place where teachers could stream tutorials, and students could learn in short,
+          engaging videos. That's the <strong>video streaming</strong> side of EduVille.
+        </p>
+      </div>
+
+      <!-- THE JOURNEY -->
+      <div class="card about-card">
+        <h2>🛠️ The Journey</h2>
+        <p>
+          The first attempt to build EduVille was made in <strong>Termux</strong> (a Linux
+          terminal for Android). It worked while the app was open — but the moment the terminal
+          closed, everything disappeared. It was frustrating, but it proved the idea was worth chasing.
+        </p>
+        <p>
+          A turning point came when two friends — <strong>Edmore Taroiwa</strong> and
+          <strong>Benjamin Nyamukusa</strong> — decided to officially start a project called
+          <strong>EduVille</strong>. The original name was <em>Eduhubb</em>, but it was renamed
+          to <strong>EduVille</strong> — a place where education becomes a community.
+        </p>
+        <p>
+          Today, EduVille is live — hosting courses, video lessons, notes, and a growing
+          community of learners. And this is only the beginning.
+        </p>
+      </div>
+
+      <!-- FOUNDERS -->
+      <div class="card about-card">
+        <h2>👥 The Founders</h2>
+        <p class="muted">Two friends from Seke 4 High School, Chitungwiza — united by one vision.</p>
+
+        <div class="founders-grid">
+
+          <!-- FOUNDER 1 -->
+          <div class="founder-card">
+            <div class="founder-photo">
+              <img src="images/edmore.jpg" alt="Edmore Taroiwa"
+                   onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'founder-photo-placeholder\'>👨‍💻</div>';">
+            </div>
+            <h3>Edmore Taroiwa</h3>
+            <p class="founder-role">Founder & Lead Developer</p>
+            <p class="founder-bio">
+              Started the EduVille idea in Form 5. Built the platform using HTML, CSS, JavaScript,
+              and Firebase. Motto: <em>"Commit to Your Future."</em>
+            </p>
+            <p class="muted">🎓 Seke 4 High · Form 1–2</p>
+          </div>
+
+          <!-- FOUNDER 2 -->
+          <div class="founder-card">
+            <div class="founder-photo">
+              <img src="images/benjamin.jpg" alt="Benjamin Nyamukusa"
+                   onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'founder-photo-placeholder\'>👨‍🎓</div>';">
+            </div>
+            <h3>Benjamin Nyamukusa</h3>
+            <p class="founder-role">Co-Founder</p>
+            <p class="founder-bio">
+              Partnered with Edmore to officially start EduVille. Helped shape the vision
+              of a GitHub + TikTok for education.
+            </p>
+            <p class="muted">🎓 Seke 4 High · Form 1–2</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SCHOOL PHOTO SECTION -->
+      <div class="card about-card">
+        <h2>📸 Our School Days</h2>
+        <p class="muted">The place where it all began — Seke 4 High School, Chitungwiza.</p>
+        <div class="school-photos">
+          <div class="school-photo">
+            <img src="images/school1.jpg" alt="Seke 4 High"
+                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>📸 Add school1.jpg</div>';">
+          </div>
+          <div class="school-photo">
+            <img src="images/school2.jpg" alt="Founders at school"
+                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>📸 Add school2.jpg</div>';">
+          </div>
+          <div class="school-photo">
+            <img src="images/school3.jpg" alt="EduVille founders"
+                 onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'photo-placeholder\'>📸 Add school3.jpg</div>';">
+          </div>
+        </div>
+        <p class="photo-hint">📁 To add photos: put them in an <strong>images/</strong> folder with the names above.</p>
+      </div>
+
+      <!-- MISSION -->
+      <div class="card about-card mission-card">
+        <h2>🎯 Our Mission</h2>
+        <p>
+          To give every learner — no matter where they are — free access to the best educational
+          resources, taught by teachers and students who care.
+        </p>
+        <p class="motto-big">"Commit to Your Future."</p>
+      </div>
+
+      <!-- WHAT'S NEXT -->
+      <div class="card about-card">
+        <h2>🚀 What's Next</h2>
+        <ul class="next-list">
+          <li>📤 Past exam papers library</li>
+          <li>🎥 Live tutorial streaming</li>
+          <li>📝 Online quizzes and assignments</li>
+          <li>🏆 Student leaderboards and badges</li>
+          <li>📱 Mobile app for Android</li>
+          <li>🌍 Expansion to more schools</li>
+        </ul>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Edu<span class="gold">Ville</span></h3>
+        <p class="motto"><em>"Commit to Your Future"</em></p>
+        <p>Founded in Chitungwiza · Built for the world</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="course.html">Courses</a></p>
+        <p><a href="video.html">Videos</a></p>
+        <p><a href="about.html">About</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>📧 <a href="mailto:ttaroiwa@gmail.com">ttaroiwa@gmail.com</a></p>
+        <p>📧 <a href="mailto:edmoretaroiwa@gmail.com">edmoretaroiwa@gmail.com</a></p>
+        <p>📞 <a href="tel:+267787279982">+267 78 727 9982</a></p>
+        <p>📞 <a href="tel:+263788923710">+263 78 892 3710</a></p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 EduVille. Commit to Your Future.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

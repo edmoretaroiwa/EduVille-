@@ -757,4 +757,170 @@ footer {
 .btn-add:hover {
   background: var(--gold-dark);
   color: var(--white) !important;
+}/* ============================
+   ABOUT PAGE STYLES
+   ============================ */
+
+.about-hero {
+  background: linear-gradient(135deg, var(--edu-blue), var(--edu-blue-light));
+  color: var(--white);
+  padding: 3rem 2rem;
+  border-radius: 14px;
+  text-align: center;
+  border-bottom: 4px solid var(--gold);
 }
+.about-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+.about-hero p {
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-card {
+  padding: 2rem;
+}
+.about-card h2 {
+  color: var(--edu-blue);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+}
+.about-card p {
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+.about-card em {
+  color: var(--edu-blue);
+  font-style: italic;
+}
+
+/* Founders */
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+.founder-card {
+  background: var(--gray-bg);
+  padding: 1.5rem;
+  border-radius: 14px;
+  border-top: 4px solid var(--gold);
+  text-align: center;
+}
+.founder-photo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--gold);
+  background: var(--edu-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.founder-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.founder-photo-placeholder {
+  font-size: 3.5rem;
+  color: var(--gold);
+}
+.founder-card h3 {
+  color: var(--edu-blue);
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+.founder-role {
+  color: var(--gold-dark);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem !important;
+}
+.founder-bio {
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem !important;
+}
+
+/* School photos */
+.school-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.school-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--edu-blue);
+  border: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.school-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo-placeholder {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 1rem;
+}
+.photo-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Mission */
+.mission-card {
+  background: linear-gradient(135deg, var(--edu-blue-dark), var(--edu-blue));
+  color: var(--white);
+  text-align: center;
+  border-top: 4px solid var(--gold);
+}
+.mission-card h2 {
+  color: var(--gold);
+  border-bottom-color: var(--white);
+}
+.mission-card p {
+  color: var(--white);
+  font-size: 1.05rem;
+}
+.motto-big {
+  font-size: 1.5rem !important;
+  font-weight: 700;
+  color: var(--gold) !important;
+  margin-top: 1.5rem !important;
+  font-style: italic;
+}
+
+/* Next list */
+.next-list {
+  list-style: none;
+  padding: 0;
+}
+.next-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--gray-border);
+  font-size: 0.95rem;
+}
+.next-list li:last-child { border-bottom: none; }
