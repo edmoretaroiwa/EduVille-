@@ -154,3 +154,103 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+/* ============================
+   ADD VIDEO FEATURE
+   ============================ */
+
+// Convert any YouTube URL into embed URL
+function extractYouTubeEmbed(url) {
+  if (!url) return '';
+  // Handle youtu.be/XXXX
+  let match = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (match) return 'https://www.youtube.com/embed/' + match[1];
+  // Handle youtube.com/watch?v=XXXX
+  match = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+  if (match) return 'https://www.youtube.com/embed/' + match[1];
+  // Handle youtube.com/embed/XXXX
+  match = url.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/);
+  if (match) return 'https://www.youtube.com/embed/' + match[1];
+  // If nothing matches, return as-is
+  return url;
+}
+
+// Handle form submission
+function handleAddVideo(e) {
+  e.preventDefault();
+
+  // Must be logged in
+  const user = auth.currentUser;
+  if (!user) {
+    alert('🔒 Please log in first to add videos.');
+    window.location.href = 'login.html';
+    return;
+  }
+
+  // Get form values
+  const title = document.getElementById('video-title').value.trim();
+  const rawUrl = document.getElementById('video-url').value.trim();
+  const course = document.getElementById('video-course').value;
+  const duration = document.getElementById('video-duration').value || '0';
+  const description = document.getElementById('video-description').value.trim();
+
+  // Convert YouTube URL
+  const embedUrl = extractYouTubeEmbed(rawUrl);
+
+  if (!title || !embedUrl || !course) {
+    alert('⚠️ Please fill in title, video URL, and course.');
+    return;
+  }
+
+  // Get user info for author name
+  db.collection('users').doc(user.uid).get().then((doc) => {
+    const userData = doc.data() || {};
+    const authorName = userData.name || user.email || 'Anonymous';
+
+    // Save to Firestore
+    return db.collection('videos').add({
+      title: title,
+      embedUrl: embedUrl,
+      originalUrl: rawUrl,
+      course: course,
+      duration: duration + ' min',
+      description: description,
+      author: authorName,
+      authorId: user.uid,
+      createdAt: new Date().toISOString()
+    });
+  })
+  .then(() => {
+    alert('🎬 Video published successfully!\n\nIt will now appear on the course page.\n\nCommit to Your Future ✨');
+    window.location.href = 'course.html';
+  })
+  .catch((error) => {
+    alert('❌ Failed to publish video: ' + error.message);
+  });
+}
+
+// Show "+ Add Video" button only if logged in (called on page load)
+document.addEventListener('DOMContentLoaded', () => {
+  // Wait a moment for auth to initialise
+  auth.onAuthStateChanged((user) => {
+    const navLinks = document.querySelector('.nav-links');
+    if (!navLinks) return;
+
+    // Remove existing add button if any
+    const existing = navLinks.querySelector('.btn-add-wrap');
+    if (existing) existing.remove();
+
+    if (user) {
+      // Insert "+ Add Video" button
+      const addLi = document.createElement('li');
+      addLi.className = 'btn-add-wrap';
+      addLi.innerHTML = '<a href="add-video.html" class="btn-add">+ Video</a>';
+      // Insert before the Login button
+      const loginBtn = navLinks.querySelector('.btn-login');
+      if (loginBtn) {
+        navLinks.insertBefore(addLi, loginBtn.parentElement);
+      } else {
+        navLinks.appendChild(addLi);
+      }
+    }
+  });
+});

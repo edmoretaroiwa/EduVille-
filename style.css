@@ -680,4 +680,81 @@ footer {
 @media (max-width: 500px) {
   .auth-card { padding: 1.8rem 1.3rem; }
   .auth-logo h1 { font-size: 1.5rem; }
+}/* ============================
+   ADD VIDEO / ADD COURSE FORM STYLES
+   ============================ */
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.add-form label {
+  font-weight: 600;
+  color: var(--edu-blue);
+  font-size: 0.9rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.add-form input[type="text"],
+.add-form input[type="url"],
+.add-form input[type="number"],
+.add-form select,
+.add-form textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--gray-border);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: 0.25s;
+  background: #F8FAFC;
+  width: 100%;
+}
+
+.add-form input:focus,
+.add-form select:focus,
+.add-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.25);
+  background: var(--white);
+}
+
+.add-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.add-form-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.form-hint {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Small button variant for "+ Add Video" in navbar */
+.btn-add {
+  background: var(--gold);
+  color: var(--edu-blue-dark) !important;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.btn-add:hover {
+  background: var(--gold-dark);
+  color: var(--white) !important;
 }

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Video — EduVille</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><span class="logo-icon">🎓</span><span class="logo-text">Edu<span class="gold">Ville</span></span></div>
+    <input class="search-bar" type="text" placeholder="🔍 Search...">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="course.html">Courses</a></li>
+      <li><a href="video.html">Videos</a></li>
+      <li><a href="login.html" class="btn-login">🔐 Login</a></li>
+      <li><a href="profile.html" class="avatar-link">👤</a></li>
+    </ul>
+  </nav>
+
+  <div class="motto-bar">✨ Commit to Your Future ✨</div>
+
+  <div class="layout">
+    <main class="main-feed full-width">
+
+      <div class="course-header">
+        <span class="course-emoji">🎬</span>
+        <div>
+          <h1>Add Video Lesson</h1>
+          <p class="muted">Publish a new lesson to EduVille</p>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="card">
+        <form id="add-video-form" class="add-form" onsubmit="handleAddVideo(event)">
+
+          <label>Video Title *</label>
+          <input type="text" id="video-title" placeholder="e.g. Introduction to Algebra" required>
+
+          <label>YouTube URL *</label>
+          <input type="url" id="video-url" placeholder="https://www.youtube.com/watch?v=..." required>
+
+          <label>Course *</label>
+          <select id="video-course" required>
+            <option value="">-- Choose a course --</option>
+            <option value="Mathematics">📘 Mathematics</option>
+            <option value="Science">🔬 Science</option>
+            <option value="Computer Studies">💻 Computer Studies</option>
+            <option value="Languages">📖 Languages</option>
+          </select>
+
+          <label>Duration (minutes)</label>
+          <input type="number" id="video-duration" placeholder="e.g. 12" min="1" max="180">
+
+          <label>Description</label>
+          <textarea id="video-description" placeholder="What will students learn in this lesson?"></textarea>
+
+          <div class="add-form-actions">
+            <button type="submit" class="btn btn-gold">🎬 Publish Video</button>
+            <a href="course.html" class="btn btn-outline-blue">Cancel</a>
+          </div>
+
+          <p class="form-hint">Only logged-in teachers and students can publish videos.</p>
+        </form>
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Edu<span class="gold">Ville</span></h3>
+        <p class="motto"><em>"Commit to Your Future"</em></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>📧 <a href="mailto:ttaroiwa@gmail.com">ttaroiwa@gmail.com</a></p>
+        <p>📧 <a href="mailto:edmoretaroiwa@gmail.com">edmoretaroiwa@gmail.com</a></p>
+        <p>📞 <a href="tel:+267787279982">+267 78 727 9982</a></p>
+        <p>📞 <a href="tel:+263788923710">+263 78 892 3710</a></p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 EduVille. Commit to Your Future.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
