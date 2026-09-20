@@ -1,24 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intro to Algebra — EduVille</title>
+  <title>Mathematics — EduVille</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
 </head>
 <body>
 
-   <nav class="navbar">
-  ...
-  <ul class="nav-links">...</ul>
-</nav>
-
-<div class="motto-bar">✨ Commit to Your Future ✨</div>
+  <nav class="navbar">
+    <div class="logo"><span class="logo-icon">🎓</span><span class="logo-text">Edu<span class="gold">Ville</span></span></div>
+    <input class="search-bar" type="text" placeholder="🔍 Search...">
     <ul class="nav-links">
-  <li><a href="index.html" class="active">Home</a></li>
-  <li><a href="course.html">Courses</a></li>
-  <li><a href="video.html">Videos</a></li>
-  <li><a href="login.html" class="btn-login">🔐 Login</a></li>
-  <li><a href="profile.html" class="avatar-link">👤</a></li>
-</ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html" class="active">Courses</a></li>
+      <li><a href="video.html">Videos</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="login.html" class="btn-login">🔐 Login</a></li>
+      <li><a href="profile.html" class="avatar-link">👤</a></li>
+    </ul>
+  </nav>
 
   <div class="motto-bar">✨ Commit to Your Future ✨</div>
 
@@ -33,50 +40,25 @@
         </div>
         <div class="course-actions">
           <button class="btn btn-gold" onclick="starCourse(this)">⭐ Star</button>
-          <button class="btn btn-outline-blue">👥 Enroll</button>
+          <button class="btn btn-outline-blue coming-soon">👥 Enroll</button>
         </div>
       </div>
 
       <div class="tabs">
         <a class="tab active">📖 Lessons</a>
-        <a class="tab">🎬 Videos</a>
-        <a class="tab">📝 Assignments</a>
-        <a class="tab">💬 Discussions</a>
+        <a class="tab coming-soon">🎬 Videos</a>
+        <a class="tab coming-soon">📝 Assignments</a>
+        <a class="tab coming-soon">💬 Discussions</a>
       </div>
 
       <div class="section-heading-row">
-  <h3 class="section-heading">📖 Course Lessons</h3>
-  <a href="add-video.html" class="btn-add" id="add-video-btn" style="display:none;">+ Add Video</a>
-</div>
-
-<!-- Dynamic lessons load here from Firestore -->
-<div id="lesson-list">
-  <p class="muted" id="loading-msg">⏳ Loading lessons...</p>
-</div>
-        </div>
-        <a href="video.html" class="btn btn-gold small">▶ Watch</a>
+        <h3 class="section-heading">📖 Course Lessons</h3>
+        <a href="add-video.html" class="btn-add" id="add-video-btn" style="display:none;">+ Add Video</a>
       </div>
 
-      <div class="lesson-row">
-        <div class="lesson-info">
-          <span class="lesson-num">02</span>
-          <div>
-            <h4>Solving Linear Equations</h4>
-            <p class="muted">Video · 15 min · Added 1 day ago</p>
-          </div>
-        </div>
-        <a href="video.html" class="btn btn-gold small">▶ Watch</a>
-      </div>
-
-      <div class="lesson-row">
-        <div class="lesson-info">
-          <span class="lesson-num">03</span>
-          <div>
-            <h4>Quadratic Equations</h4>
-            <p class="muted">Video · 18 min · Added today</p>
-          </div>
-        </div>
-        <a href="video.html" class="btn btn-gold small">▶ Watch</a>
+      <!-- Dynamic lessons load here from Firestore -->
+      <div id="lesson-list">
+        <p class="muted" id="loading-msg">⏳ Loading lessons...</p>
       </div>
 
     </main>
@@ -99,11 +81,6 @@
     <p class="copyright">© 2025 EduVille. Commit to Your Future.</p>
   </footer>
 
-    <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-  <script src="firebase-config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
