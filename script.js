@@ -398,3 +398,15 @@ document.querySelectorAll('.coming-soon').forEach(link => {
     alert('✨ Coming soon!\n\nThis feature is under construction.\n\n— EduVille · Commit to Your Future');
   });
 });e
+/* ============================
+   PAGE-SPECIFIC LOADERS
+   ============================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('lesson-list')) {
+    loadCourseVideos();
+  }
+  if (document.getElementById('video-frame')) {
+    loadSingleVideo();
+  }
+});
