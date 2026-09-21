@@ -15,7 +15,7 @@ document.querySelectorAll('.tab').forEach(tab => {
 
 // Smooth scroll for anchors
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
+  link.addEventListener('click',=> {
     e.preventDefault();
     const t = document.querySelector(link.getAttribute('href'));
     if (t) t.scrollIntoView({ behavior: 'smooth' });
@@ -398,18 +398,7 @@ document.querySelectorAll('.coming-soon').forEach(link => {
     alert('✨ Coming soon!\n\nThis feature is under construction.\n\n— EduVille · Commit to Your Future');
   });
 });e
-/* ============================
-   PAGE-SPECIFIC LOADERS
-   ============================ */
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('lesson-list')) {
-    loadCourseVideos();
-  }
-  if (document.getElementById('video-frame')) {
-    loadSingleVideo();
-  }
-});
 /* ============================
    PAGE-SPECIFIC LOADERS
    ============================ */
