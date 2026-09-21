@@ -410,3 +410,20 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSingleVideo();
   }
 });
+/* ============================
+   PAGE-SPECIFIC LOADERS
+   ============================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // On course.html — load the lesson list
+  if (document.getElementById('lesson-list')) {
+    console.log('Loading course videos...');
+    loadCourseVideos();
+  }
+
+  // On video.html — load a single video by ID
+  if (document.getElementById('video-frame')) {
+    console.log('Loading single video...');
+    loadSingleVideo();
+  }
+});
