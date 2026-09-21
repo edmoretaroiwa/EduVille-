@@ -3,61 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduVille - Online Learning for ZIMSEC, BEC & Cambridge</title>
-<title>EduVille - Online Learning for ZIMSEC, BEC & Cambridge</title>
-<meta name="description" content="Free video lessons, past papers, and notes for Mathematics, Physics, Chemistry, and Coding. ZIMSEC, BEC, IGCSE, and A-Level. Commit to Your Future.">
-<meta name="keywords" content="ZIMSEC, BEC, Cambridge, IGCSE, A-Level, O-Level, past papers, Zimbabwe, Botswana, online learning">
-<link rel="stylesheet" href="style.css">
+  <title>Mathematics — EduVille</title>
+  <meta name="description" content="Mathematics lessons for ZIMSEC, BEC and Cambridge students. Algebra, geometry, calculus and more.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
 
-<!-- Open Graph (WhatsApp/Facebook previews) -->
-<meta property="og:title" content="EduVille — Commit to Your Future">
-<meta property="og:description" content="Free education platform with videos, notes, and past papers for African students.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://eduvillelearning.africa/">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "EduVille",
-  "url": "https://eduvillelearning.africa",
-  "description": "Free online learning platform for ZIMSEC, BEC and Cambridge students.",
-  "foundingDate": "2025",
-  "founders": [
-    {"@type": "Person", "name": "Edmore Taroiwa"},
-    {"@type": "Person", "name": "Benjamin Nyamukusa"}
-  ],
-  "email": "ttaroiwa@gmail.com",
-  "telephone": "+267787279982"
-}
-</script>
-
-<!-- Open Graph (WhatsApp/Facebook previews) -->
-<meta property="og:title" content="EduVille — Commit to Your Future">
-<meta property="og:description" content="Free education platform with videos, notes, and past papers for African students.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://eduvillelearning.africa/">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "EduVille",
-  "url": "https://eduvillelearning.africa",
-  "description": "Free online learning platform for ZIMSEC, BEC and Cambridge students.",
-  "foundingDate": "2025",
-  "founders": [
-    {"@type": "Person", "name": "Edmore Taroiwa"},
-    {"@type": "Person", "name": "Benjamin Nyamukusa"}
-  ],
-  "email": "ttaroiwa@gmail.com",
-  "telephone": "+267787279982"
-}
-</script>
-
-  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
@@ -67,9 +17,9 @@
 
   <nav class="navbar">
     <div class="logo">
-  <img src="logo-icon.png" alt="EduVille" class="logo-img">
-  <span class="logo-text">Edu<span class="gold">Ville</span></span>
-</div>
+      <img src="logo-icon.png" alt="EduVille" class="logo-img">
+      <span class="logo-text">Edu<span class="gold">Ville</span></span>
+    </div>
     <input class="search-bar" type="text" placeholder="🔍 Search...">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -81,7 +31,7 @@
     </ul>
   </nav>
 
- <div class="motto-bar">✨ Commit to Your Future ✨</div>
+  <div class="motto-bar">✨ Commit to Your Future ✨</div>
 
   <div class="layout">
     <main class="main-feed full-width">
@@ -110,7 +60,6 @@
         <a href="add-video.html" class="btn-add" id="add-video-btn" style="display:none;">+ Add Video</a>
       </div>
 
-      <!-- Dynamic lessons load here from Firestore -->
       <div id="lesson-list">
         <p class="muted" id="loading-msg">⏳ Loading lessons...</p>
       </div>

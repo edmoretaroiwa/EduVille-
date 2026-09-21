@@ -1,52 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"
-  <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVille - Online Learning for ZIMSEC, BEC & Cambridge</title>
+  <meta name="description" content="Free video lessons, past papers, and notes for Mathematics, Physics, Chemistry, and Coding. ZIMSEC, BEC, IGCSE, and A-Level. Commit to Your Future.">
+  <meta name="keywords" content="ZIMSEC, BEC, Cambridge, IGCSE, A-Level, O-Level, past papers, Zimbabwe, Botswana, online learning">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="google-site-verification" content="a5v7XejNh8zPY_-8ODsuVizncfhm-esXAqnhYdGnZZk" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduVille - Online Learning for ZIMSEC, BEC & Cambridge</title>
-  ...
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduVille - Online Learning for ZIMSEC, BEC & Cambridge</title>
-<meta name="description" content="Free video lessons, past papers, and notes for Mathematics, Physics, Chemistry, and Coding. ZIMSEC, BEC, IGCSE, and A-Level. Commit to Your Future.">
-<meta name="keywords" content="ZIMSEC, BEC, Cambridge, IGCSE, A-Level, O-Level, past papers, Zimbabwe, Botswana, online learning">
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
-<!-- Open Graph (WhatsApp/Facebook previews) -->
-<meta property="og:title" content="EduVille — Commit to Your Future">
-<meta property="og:description" content="Free education platform with videos, notes, and past papers for African students.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://eduvillelearning.africa/">
+  <meta property="og:title" content="EduVille — Commit to Your Future">
+  <meta property="og:description" content="Free education platform with videos, notes, and past papers for African students.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://eduvillelearning.africa/">
 
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "EduVille",
-  "url": "https://eduvillelearning.africa",
-  "description": "Free online learning platform for ZIMSEC, BEC and Cambridge students.",
-  "foundingDate": "2025",
-  "founders": [
-    {"@type": "Person", "name": "Edmore Taroiwa"},
-    {"@type": "Person", "name": "Benjamin Nyamukusa"}
-  ],
-  "email": "ttaroiwa@gmail.com",
-  "telephone": "+267787279982"
-}
-</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "EduVille",
+    "url": "https://eduvillelearning.africa",
+    "description": "Free online learning platform for ZIMSEC, BEC and Cambridge students.",
+    "foundingDate": "2025",
+    "founders": [
+      {"@type": "Person", "name": "Edmore Taroiwa"},
+      {"@type": "Person", "name": "Benjamin Nyamukusa"}
+    ],
+    "email": "ttaroiwa@gmail.com",
+    "telephone": "+267787279982"
+  }
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
 </head>
 <body>
 
-  <!-- TOP NAV -->
   <nav class="navbar">
     <div class="logo">
-  <img src="logo-icon.png" alt="EduVille" class="logo-img">
-  <span class="logo-text">Edu<span class="gold">Ville</span></span>
-</div>
-    <input class="search-bar" type="text" placeholder="🔍 Search courses, videos, students...">
+      <img src="logo-icon.png" alt="EduVille" class="logo-img">
+      <span class="logo-text">Edu<span class="gold">Ville</span></span>
+    </div>
+    <input class="search-bar" type="text" placeholder="🔍 Search...">
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="courses.html">Courses</a></li>
@@ -57,29 +55,25 @@
     </ul>
   </nav>
 
-  <!-- MOTTO BAR -->
   <div class="motto-bar">✨ Commit to Your Future ✨</div>
 
-  <!-- LAYOUT -->
   <div class="layout">
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
-  <h4>Quick Links</h4>
-  <a href="index.html" class="side-link active">🏠 Dashboard</a>
-  <a href="courses.html" class="side-link">📚 My Courses</a>
-  <a href="video.html" class="side-link">🎬 Watch Videos</a>
-  <a href="#" class="side-link coming-soon">📝 Assignments</a>
-  <a href="#" class="side-link coming-soon">⭐ Starred</a>
-  <a href="#" class="side-link coming-soon">💬 Discussions</a>
+      <h4>Quick Links</h4>
+      <a href="index.html" class="side-link active">🏠 Dashboard</a>
+      <a href="courses.html" class="side-link">📚 My Courses</a>
+      <a href="video.html" class="side-link">🎬 Watch Videos</a>
+      <a href="#" class="side-link coming-soon">📝 Assignments</a>
+      <a href="#" class="side-link coming-soon">⭐ Starred</a>
+      <a href="#" class="side-link coming-soon">💬 Discussions</a>
 
-  <h4 style="margin-top:2rem;">Your Courses</h4>
-  <a href="course.html" class="side-link">📘 Mathematics</a>
-  <a href="course.html" class="side-link">🔬 Science</a>
-  <a href="course.html" class="side-link">💻 Computer Studies</a>
-</aside>
+      <h4 style="margin-top:2rem;">Your Courses</h4>
+      <a href="course.html" class="side-link">📘 Mathematics</a>
+      <a href="course.html" class="side-link">🔬 Science</a>
+      <a href="course.html" class="side-link">💻 Computer Studies</a>
+    </aside>
 
-    <!-- MAIN FEED -->
     <main class="main-feed">
 
       <div class="welcome-banner">
@@ -97,7 +91,6 @@
 
       <h3 class="section-heading">🔥 Featured Courses</h3>
       <div class="repo-grid">
-
         <div class="repo-card">
           <div class="repo-header">
             <span class="repo-icon">📘</span>
@@ -106,13 +99,10 @@
           </div>
           <p>Algebra, geometry, and calculus taught step by step with video lessons.</p>
           <div class="repo-footer">
-            <span>⭐ 120</span>
-            <span>👥 250 students</span>
-            <span>🎬 40 videos</span>
+            <span>⭐ 120</span><span>👥 250 students</span><span>🎬 40 videos</span>
           </div>
           <a href="course.html" class="btn btn-outline-blue">Open Course →</a>
         </div>
-
         <div class="repo-card">
           <div class="repo-header">
             <span class="repo-icon">🔬</span>
@@ -121,13 +111,10 @@
           </div>
           <p>Physics, Chemistry, and Biology with hands-on experiments on video.</p>
           <div class="repo-footer">
-            <span>⭐ 98</span>
-            <span>👥 210 students</span>
-            <span>🎬 35 videos</span>
+            <span>⭐ 98</span><span>👥 210 students</span><span>🎬 35 videos</span>
           </div>
           <a href="course.html" class="btn btn-outline-blue">Open Course →</a>
         </div>
-
         <div class="repo-card">
           <div class="repo-header">
             <span class="repo-icon">💻</span>
@@ -136,39 +123,32 @@
           </div>
           <p>Learn HTML, CSS, JavaScript, and Python from scratch.</p>
           <div class="repo-footer">
-            <span>⭐ 180</span>
-            <span>👥 240 students</span>
-            <span>🎬 50 videos</span>
+            <span>⭐ 180</span><span>👥 240 students</span><span>🎬 50 videos</span>
           </div>
           <a href="course.html" class="btn btn-outline-blue">Open Course →</a>
         </div>
-
       </div>
 
       <h3 class="section-heading">🎬 Latest Video Lessons</h3>
       <div class="video-grid">
-
         <div class="video-card">
           <div class="video-thumb">▶</div>
           <h4>Intro to Algebra</h4>
           <p class="video-meta">📘 Mathematics · 12 min · Mr. Otieno</p>
           <a href="video.html" class="btn btn-gold small">Watch</a>
         </div>
-
         <div class="video-card">
           <div class="video-thumb">▶</div>
           <h4>Photosynthesis Explained</h4>
           <p class="video-meta">🔬 Science · 8 min · Ms. Wanjiru</p>
           <a href="video.html" class="btn btn-gold small">Watch</a>
         </div>
-
         <div class="video-card">
           <div class="video-thumb">▶</div>
           <h4>Build Your First Website</h4>
           <p class="video-meta">💻 Computer Studies · 20 min · Mr. Kim</p>
           <a href="video.html" class="btn btn-gold small">Watch</a>
         </div>
-
       </div>
 
       <h3 class="section-heading">📢 Recent Activity</h3>
@@ -214,10 +194,6 @@
     <p class="copyright">© 2025 EduVille. Commit to Your Future.</p>
   </footer>
 
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-  <script src="firebase-config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
