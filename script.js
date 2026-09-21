@@ -15,7 +15,7 @@ document.querySelectorAll('.tab').forEach(tab => {
 
 // Smooth scroll for anchors
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click',=> {
+  link.addEventListener('click', e => {
     e.preventDefault();
     const t = document.querySelector(link.getAttribute('href'));
     if (t) t.scrollIntoView({ behavior: 'smooth' });
@@ -45,10 +45,8 @@ stats.forEach(s => io.observe(s));
 
 /* ============================
    FIREBASE AUTHENTICATION
-   Login / Signup / Logout
    ============================ */
 
-// Log out
 function logout() {
   auth.signOut().then(() => {
     alert('👋 You have been logged out.\n\nSee you soon! — EduVille');
@@ -56,7 +54,6 @@ function logout() {
   });
 }
 
-// Switch between login / signup tabs
 function switchTab(mode) {
   const loginForm = document.getElementById('login-form');
   const signupForm = document.getElementById('signup-form');
@@ -77,7 +74,6 @@ function switchTab(mode) {
   }
 }
 
-// Handle login
 function handleLogin(e) {
   e.preventDefault();
   const email = document.getElementById('login-email').value.trim();
@@ -99,7 +95,6 @@ function handleLogin(e) {
     });
 }
 
-// Handle signup
 function handleSignup(e) {
   e.preventDefault();
   const name = document.getElementById('signup-name').value.trim();
@@ -135,7 +130,6 @@ function handleSignup(e) {
     });
 }
 
-// Replace Login button with user badge when logged in
 document.addEventListener('DOMContentLoaded', () => {
   const loginBtn = document.querySelector('.btn-login');
   if (!loginBtn) return;
@@ -154,31 +148,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
 /* ============================
    ADD VIDEO FEATURE
    ============================ */
 
-// Convert any YouTube URL into embed URL
 function extractYouTubeEmbed(url) {
   if (!url) return '';
-  // Handle youtu.be/XXXX
   let match = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
   if (match) return 'https://www.youtube.com/embed/' + match[1];
-  // Handle youtube.com/watch?v=XXXX
   match = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
   if (match) return 'https://www.youtube.com/embed/' + match[1];
-  // Handle youtube.com/embed/XXXX
   match = url.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/);
   if (match) return 'https://www.youtube.com/embed/' + match[1];
-  // If nothing matches, return as-is
   return url;
 }
 
-// Handle form submission
 function handleAddVideo(e) {
   e.preventDefault();
 
-  // Must be logged in
   const user = auth.currentUser;
   if (!user) {
     alert('🔒 Please log in first to add videos.');
@@ -186,14 +174,12 @@ function handleAddVideo(e) {
     return;
   }
 
-  // Get form values
   const title = document.getElementById('video-title').value.trim();
   const rawUrl = document.getElementById('video-url').value.trim();
   const course = document.getElementById('video-course').value;
   const duration = document.getElementById('video-duration').value || '0';
   const description = document.getElementById('video-description').value.trim();
 
-  // Convert YouTube URL
   const embedUrl = extractYouTubeEmbed(rawUrl);
 
   if (!title || !embedUrl || !course) {
@@ -201,12 +187,10 @@ function handleAddVideo(e) {
     return;
   }
 
-  // Get user info for author name
   db.collection('users').doc(user.uid).get().then((doc) => {
     const userData = doc.data() || {};
     const authorName = userData.name || user.email || 'Anonymous';
 
-    // Save to Firestore
     return db.collection('videos').add({
       title: title,
       embedUrl: embedUrl,
@@ -228,46 +212,17 @@ function handleAddVideo(e) {
   });
 }
 
-// Show "+ Add Video" button only if logged in (called on page load)
-document.addEventListener('DOMContentLoaded', () => {
-  // Wait a moment for auth to initialise
-  auth.onAuthStateChanged((user) => {
-    const navLinks = document.querySelector('.nav-links');
-    if (!navLinks) return;
-
-    // Remove existing add button if any
-    const existing = navLinks.querySelector('.btn-add-wrap');
-    if (existing) existing.remove();
-
-    if (user) {
-      // Insert "+ Add Video" button
-      const addLi = document.createElement('li');
-      addLi.className = 'btn-add-wrap';
-      addLi.innerHTML = '<a href="add-video.html" class="btn-add">+ Video</a>';
-      // Insert before the Login button
-      const loginBtn = navLinks.querySelector('.btn-login');
-      if (loginBtn) {
-        navLinks.insertBefore(addLi, loginBtn.parentElement);
-      } else {
-        navLinks.appendChild(addLi);
-      }
-    }
-  });
-});
 /* ============================
    DYNAMIC COURSE PAGE
-   Loads videos from Firestore
    ============================ */
 
-// Load all videos and display them on course.html
 function loadCourseVideos() {
   const container = document.getElementById('lesson-list');
   if (!container) return;
 
   db.collection('videos')
-  .get()
+    .get()
     .then((snapshot) => {
-      // Clear loading message
       container.innerHTML = '';
 
       if (snapshot.empty) {
@@ -311,11 +266,10 @@ function loadCourseVideos() {
     });
 }
 
-// Load a single video on video.html based on URL parameter
 function loadSingleVideo() {
   const params = new URLSearchParams(window.location.search);
   const videoId = params.get('id');
-  if (!videoId) return; // Nothing to load, keep defaults
+  if (!videoId) return;
 
   const frame = document.getElementById('video-frame');
   const titleEl = document.getElementById('video-title-el');
@@ -342,35 +296,19 @@ function loadSingleVideo() {
     });
 }
 
-// Show "+ Add Video" button on course page if logged in
-document.addEventListener('DOMContentLoaded', () => {
-  const addBtn = document.getElementById('add-video-btn');
-  if (!addBtn) return;
-
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      addBtn.style.display = 'inline-flex';
-    } else {
-      addBtn.style.display = 'none';
-    }
-  });
-});
 /* ============================
    REAL STATS FROM FIRESTORE
    ============================ */
 
 function loadRealStats() {
-  // Only run on homepage
   const statsRow = document.querySelector('.stats-row');
   if (!statsRow) return;
 
-  // Count videos
   db.collection('videos').get().then((snap) => {
     const videoCount = snap.size;
     document.querySelectorAll('.mini-stat h3')[2].innerText = videoCount + '';
   });
 
-  // Count users
   db.collection('users').get().then((snap) => {
     const userCount = snap.size;
     const teachers = snap.docs.filter(d => d.data().role === 'teacher').length;
@@ -379,7 +317,6 @@ function loadRealStats() {
     document.querySelectorAll('.mini-stat h3')[3].innerText = teachers + '';
   });
 
-  // Count unique courses
   db.collection('videos').get().then((snap) => {
     const courses = new Set();
     snap.forEach(doc => courses.add(doc.data().course));
@@ -387,7 +324,6 @@ function loadRealStats() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', loadRealStats);
 /* ============================
    COMING SOON HANDLER
    ============================ */
@@ -397,22 +333,33 @@ document.querySelectorAll('.coming-soon').forEach(link => {
     e.preventDefault();
     alert('✨ Coming soon!\n\nThis feature is under construction.\n\n— EduVille · Commit to Your Future');
   });
-});e
+});
 
 /* ============================
    PAGE-SPECIFIC LOADERS
    ============================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // On course.html — load the lesson list
   if (document.getElementById('lesson-list')) {
     console.log('Loading course videos...');
     loadCourseVideos();
   }
 
-  // On video.html — load a single video by ID
   if (document.getElementById('video-frame')) {
     console.log('Loading single video...');
     loadSingleVideo();
   }
+
+  if (document.getElementById('add-video-btn')) {
+    auth.onAuthStateChanged((user) => {
+      const addBtn = document.getElementById('add-video-btn');
+      if (user) {
+        addBtn.style.display = 'inline-flex';
+      } else {
+        addBtn.style.display = 'none';
+      }
+    });
+  }
+
+  loadRealStats();
 });
