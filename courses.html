@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses — EduVille</title>
+  <meta name="description" content="Explore ZIMSEC, BEC and Cambridge courses. O-Level, A-Level, IGCSE, AS, A2 subjects for Mathematics, Physics, Chemistry and more.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo-icon.png" alt="EduVille" class="logo-img">
+      <span class="logo-text">Edu<span class="gold">Ville</span></span>
+    </div>
+    <input class="search-bar" type="text" placeholder="🔍 Search...">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html" class="active">Courses</a></li>
+      <li><a href="video.html">Videos</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="login.html" class="btn-login">🔐 Login</a></li>
+      <li><a href="profile.html" class="avatar-link">👤</a></li>
+    </ul>
+  </nav>
+
+  <div class="motto-bar">✨ Commit to Your Future ✨</div>
+
+  <div class="layout">
+    <main class="main-feed full-width">
+
+      <div class="courses-hero">
+        <h1>📚 Explore <span class="gold">Courses</span></h1>
+        <p>Choose your exam board, level, and subject — start learning today.</p>
+      </div>
+
+      <div id="courses-tree">
+
+        <!-- ZIMSEC -->
+        <div class="exam-block">
+          <div class="exam-header">
+            <span class="exam-flag">🇿🇼</span>
+            <h2>ZIMSEC <span class="muted">(Zimbabwe)</span></h2>
+          </div>
+
+          <div class="level-block">
+            <h3>O-Level</h3>
+            <div class="subject-grid">
+              <a class="subject-card" href="course.html?subject=Mathematics">
+                <span class="subject-icon">📘</span>
+                <span class="subject-name">Mathematics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Physics">
+                <span class="subject-icon">🔬</span>
+                <span class="subject-name">Physics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Chemistry">
+                <span class="subject-icon">⚗️</span>
+                <span class="subject-name">Chemistry</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Biology">
+                <span class="subject-icon">🧬</span>
+                <span class="subject-name">Biology</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=English">
+                <span class="subject-icon">📖</span>
+                <span class="subject-name">English</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Geography">
+                <span class="subject-icon">🌍</span>
+                <span class="subject-name">Geography</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=History">
+                <span class="subject-icon">📜</span>
+                <span class="subject-name">History</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Computer Science">
+                <span class="subject-icon">💻</span>
+                <span class="subject-name">Computer Science</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="level-block">
+            <h3>A-Level</h3>
+            <div class="subject-grid">
+              <a class="subject-card" href="course.html?subject=Pure Mathematics">
+                <span class="subject-icon">📐</span>
+                <span class="subject-name">Pure Mathematics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Physics">
+                <span class="subject-icon">🔭</span>
+                <span class="subject-name">Physics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Chemistry">
+                <span class="subject-icon">⚗️</span>
+                <span class="subject-name">Chemistry</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Biology">
+                <span class="subject-icon">🧬</span>
+                <span class="subject-name">Biology</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Economics">
+                <span class="subject-icon">💰</span>
+                <span class="subject-name">Economics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Accounts">
+                <span class="subject-icon">📊</span>
+                <span class="subject-name">Accounts</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BEC -->
+        <div class="exam-block">
+          <div class="exam-header">
+            <span class="exam-flag">🇧🇼</span>
+            <h2>BEC <span class="muted">(Botswana)</span></h2>
+          </div>
+
+          <div class="level-block">
+            <h3>JCE (Junior Certificate)</h3>
+            <div class="subject-grid">
+              <a class="subject-card" href="course.html?subject=Mathematics">
+                <span class="subject-icon">📘</span>
+                <span class="subject-name">Mathematics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Science">
+                <span class="subject-icon">🔬</span>
+                <span class="subject-name">Science</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=English">
+                <span class="subject-icon">📖</span>
+                <span class="subject-name">English</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Setswana">
+                <span class="subject-icon">🗣️</span>
+                <span class="subject-name">Setswana</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="level-block">
+            <h3>BGCSE (Senior Certificate)</h3>
+            <div class="subject-grid">
+              <a class="subject-card" href="course.html?subject=Mathematics">
+                <span class="subject-icon">📘</span>
+                <span class="subject-name">Mathematics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Physics">
+                <span class="subject-icon">🔬</span>
+                <span class="subject-name">Physics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Chemistry">
+                <span class="subject-icon">⚗️</span>
+                <span class="subject-name">Chemistry</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Biology">
+                <span class="subject-icon">🧬</span>
+                <span class="subject-name">Biology</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=English">
+                <span class="subject-icon">📖</span>
+                <span class="subject-name">English</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Computer Studies">
+                <span class="subject-icon">💻</span>
+                <span class="subject-name">Computer Studies</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAMBRIDGE -->
+        <div class="exam-block">
+          <div class="exam-header">
+            <span class="exam-flag">🇬🇧</span>
+            <h2>Cambridge <span class="muted">(International)</span></h2>
+          </div>
+
+          <div class="level-block">
+            <h3>IGCSE</h3>
+            <div class="subject-grid">
+              <a class="subject-card" href="course.html?subject=Mathematics">
+                <span class="subject-icon">📘</span>
+                <span class="subject-name">Mathematics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Physics">
+                <span class="subject-icon">🔬</span>
+                <span class="subject-name">Physics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Chemistry">
+                <span class="subject-icon">⚗️</span>
+                <span class="subject-name">Chemistry</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Biology">
+                <span class="subject-icon">🧬</span>
+                <span class="subject-name">Biology</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=English Language">
+                <span class="subject-icon">📖</span>
+                <span class="subject-name">English Language</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Business Studies">
+                <span class="subject-icon">💼</span>
+                <span class="subject-name">Business Studies</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="level-block">
+            <h3>AS Level</h3>
+            <div class="subject-grid">
+              <a class="subject-card" href="course.html?subject=Mathematics">
+                <span class="subject-icon">📐</span>
+                <span class="subject-name">Mathematics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Physics">
+                <span class="subject-icon">🔭</span>
+                <span class="subject-name">Physics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Chemistry">
+                <span class="subject-icon">⚗️</span>
+                <span class="subject-name">Chemistry</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Economics">
+                <span class="subject-icon">💰</span>
+                <span class="subject-name">Economics</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="level-block">
+            <h3>A2 Level</h3>
+            <div class="subject-grid">
+              <a class="subject-card" href="course.html?subject=Mathematics">
+                <span class="subject-icon">📐</span>
+                <span class="subject-name">Mathematics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Physics">
+                <span class="subject-icon">🔭</span>
+                <span class="subject-name">Physics</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Chemistry">
+                <span class="subject-icon">⚗️</span>
+                <span class="subject-name">Chemistry</span>
+              </a>
+              <a class="subject-card" href="course.html?subject=Further Mathematics">
+                <span class="subject-icon">🧮</span>
+                <span class="subject-name">Further Mathematics</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Edu<span class="gold">Ville</span></h3>
+        <p class="motto"><em>"Commit to Your Future"</em></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <p><a href="courses.html">Courses</a></p>
+        <p><a href="video.html">Videos</a></p>
+        <p><a href="about.html">About</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>📧 <a href="mailto:ttaroiwa@gmail.com">ttaroiwa@gmail.com</a></p>
+        <p>📧 <a href="mailto:edmoretaroiwa@gmail.com">edmoretaroiwa@gmail.com</a></p>
+        <p>📞 <a href="tel:+267787279982">+267 78 727 9982</a></p>
+        <p>📞 <a href="tel:+263788923710">+263 78 892 3710</a></p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 EduVille. Commit to Your Future.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
