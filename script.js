@@ -265,8 +265,7 @@ function loadCourseVideos() {
   if (!container) return;
 
   db.collection('videos')
-    .orderBy('createdAt', 'desc')
-    .get()
+  .get()
     .then((snapshot) => {
       // Clear loading message
       container.innerHTML = '';
@@ -396,6 +395,6 @@ document.addEventListener('DOMContentLoaded', loadRealStats);
 document.querySelectorAll('.coming-soon').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    alert('✨ Coming soon!\\n\\nThis feature is under construction.\\n\\n— EduVille · Commit to Your Future');
+    alert('✨ Coming soon!\n\nThis feature is under construction.\n\n— EduVille · Commit to Your Future');
   });
-});
+});e
