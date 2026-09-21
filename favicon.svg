@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="18" fill="#1E3A8A"/>
+  <!-- Graduation cap -->
+  <polygon points="50,22 82,36 50,50 18,36" fill="#FBBF24"/>
+  <rect x="78" y="38" width="4" height="14" fill="#FBBF24"/>
+  <circle cx="80" cy="53" r="3" fill="#FBBF24"/>
+  <!-- Hexagon base with play button -->
+  <polygon points="50,52 72,64 72,86 50,96 28,86 28,64" fill="#1E3A8A" stroke="#FBBF24" stroke-width="2"/>
+  <polygon points="44,62 44,82 62,72" fill="#FBBF24"/>
+</svg>

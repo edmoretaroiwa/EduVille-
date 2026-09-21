@@ -356,3 +356,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+/* ============================
+   REAL STATS FROM FIRESTORE
+   ============================ */
+
+function loadRealStats() {
+  // Only run on homepage
+  const statsRow = document.querySelector('.stats-row');
+  if (!statsRow) return;
+
+  // Count videos
+  db.collection('videos').get().then((snap) => {
+    const videoCount = snap.size;
+    document.querySelectorAll('.mini-stat h3')[2].innerText = videoCount + '';
+  });
+
+  // Count users
+  db.collection('users').get().then((snap) => {
+    const userCount = snap.size;
+    const teachers = snap.docs.filter(d => d.data().role === 'teacher').length;
+    const students = userCount - teachers;
+    document.querySelectorAll('.mini-stat h3')[0].innerText = students + '';
+    document.querySelectorAll('.mini-stat h3')[3].innerText = teachers + '';
+  });
+
+  // Count unique courses
+  db.collection('videos').get().then((snap) => {
+    const courses = new Set();
+    snap.forEach(doc => courses.add(doc.data().course));
+    document.querySelectorAll('.mini-stat h3')[1].innerText = courses.size + '';
+  });
+}
+
+document.addEventListener('DOMContentLoaded', loadRealStats);
+/* ============================
+   COMING SOON HANDLER
+   ============================ */
+
+document.querySelectorAll('.coming-soon').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    alert('✨ Coming soon!\\n\\nThis feature is under construction.\\n\\n— EduVille · Commit to Your Future');
+  });
+});
